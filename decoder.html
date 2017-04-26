@@ -1,0 +1,49 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>Ogg Vorbis Decoder</title>
+<script type="text/javascript" src="js/ajax.js"></script>
+<script type="text/javascript" src="script.js"></script>
+<script type="text/javascript" src="oggvorbis.js"></script>
+<script>
+	var isActive=false;
+	
+	function disabledbuttons(boo) {
+		var buttons = document.getElementsByTagName('input');
+		for(var i=0;i<buttons.length;i++)
+		if(buttons[i].type=='button')
+		buttons[i].disabled=boo;
+	}
+	
+	function oggvorbisfile(filename) {
+		isActive=true;
+		disabledbuttons(true);
+		readfile(filename);
+	}
+</script>
+</head>
+
+<body>
+<h2>OGG Vorbis Javascript Decoder - 04/26/2012</h2>
+<p>
+  <input type="text" id="buffer_time" value="4" size="4" maxlength="5" />
+buffersize/seconds</p>
+<p>
+  <input type="radio" name="player_type" value="audio" id="player_type_audio" checked="checked" />
+  audio
+  <input type="radio" name="player_type" value="embed" id="player_type_embed" />
+  embed
+  <input type="radio" name="player_type" value="flash" id="player_type_flash" />
+  flash</p>
+<p>
+  <input type="button" value="big-buck-bunny_trailer.ogg" onclick="oggvorbisfile(this.value);" /> <input type="button" value="sync_def_PF-0_AF-33-BG_FF-33.ogg" onclick="oggvorbisfile(this.value);" />
+</p>
+<canvas id="oggvorbis_file_field" style="border:1px solid black"></canvas>
+<div id="player-container">Player</div>
+<br />
+<br />
+<br />
+VP8 - WebM JavaScript Decoder for every browser - This script works with Safari 4/5, Google Chrome, Mozilla Firefox, Opera - implemented by Dominik Homberger
+</body>
+</html>
